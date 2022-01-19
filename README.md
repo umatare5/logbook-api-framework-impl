@@ -1,0 +1,1 @@
+# logbook-api-framework-impl
