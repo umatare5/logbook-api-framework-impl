@@ -26,9 +26,6 @@ type ServerInterface interface {
 	// (GET /api/v1/admin/health)
 	GetAdminHealth(ctx echo.Context) error
 
-	// (GET /api/v1/admin/tokens)
-	GetAdminTokens(ctx echo.Context) error
-
 	// (GET /api/v1/divelog/{divelogId})
 	GetDivelog(ctx echo.Context, divelogId string) error
 
@@ -47,15 +44,6 @@ func (w *ServerInterfaceWrapper) GetAdminHealth(ctx echo.Context) error {
 
 	// Invoke the callback with all the unmarshalled arguments
 	err = w.Handler.GetAdminHealth(ctx)
-	return err
-}
-
-// GetAdminTokens converts echo context to params.
-func (w *ServerInterfaceWrapper) GetAdminTokens(ctx echo.Context) error {
-	var err error
-
-	// Invoke the callback with all the unmarshalled arguments
-	err = w.Handler.GetAdminTokens(ctx)
 	return err
 }
 
@@ -129,7 +117,6 @@ func RegisterHandlersWithBaseURL(router EchoRouter, si ServerInterface, baseURL 
 	}
 
 	router.GET(baseURL+"/api/v1/admin/health", wrapper.GetAdminHealth)
-	router.GET(baseURL+"/api/v1/admin/tokens", wrapper.GetAdminTokens)
 	router.GET(baseURL+"/api/v1/divelog/:divelogId", wrapper.GetDivelog)
 	router.GET(baseURL+"/api/v1/divelogs", wrapper.GetDivelogs)
 
