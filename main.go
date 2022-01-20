@@ -23,16 +23,16 @@ type GetDivelogsParams struct {
 // ServerInterface represents all server handlers.
 type ServerInterface interface {
 
-	// (GET /admin/health)
+	// (GET /api/v1/admin/health)
 	GetAdminHealth(ctx echo.Context) error
 
-	// (GET /admin/tokens)
+	// (GET /api/v1/admin/tokens)
 	GetAdminTokens(ctx echo.Context) error
 
-	// (GET /divelog/{divelogId})
+	// (GET /api/v1/divelog/{divelogId})
 	GetDivelog(ctx echo.Context, divelogId string) error
 
-	// (GET /divelogs)
+	// (GET /api/v1/divelogs)
 	GetDivelogs(ctx echo.Context, params GetDivelogsParams) error
 }
 
@@ -128,9 +128,9 @@ func RegisterHandlersWithBaseURL(router EchoRouter, si ServerInterface, baseURL 
 		Handler: si,
 	}
 
-	router.GET(baseURL+"/admin/health", wrapper.GetAdminHealth)
-	router.GET(baseURL+"/admin/tokens", wrapper.GetAdminTokens)
-	router.GET(baseURL+"/divelog/:divelogId", wrapper.GetDivelog)
-	router.GET(baseURL+"/divelogs", wrapper.GetDivelogs)
+	router.GET(baseURL+"/api/v1/admin/health", wrapper.GetAdminHealth)
+	router.GET(baseURL+"/api/v1/admin/tokens", wrapper.GetAdminTokens)
+	router.GET(baseURL+"/api/v1/divelog/:divelogId", wrapper.GetDivelog)
+	router.GET(baseURL+"/api/v1/divelogs", wrapper.GetDivelogs)
 
 }
