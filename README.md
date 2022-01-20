@@ -1,4 +1,4 @@
-# logbook-api-framework-impl
+# logbook-api-router-impl
 
 **DO NOT EDIT THIS CODE MANUALLY!**
 
@@ -9,5 +9,5 @@ The code was generated automatically by using [logbook-openapi-src](https://gith
 ## Usage
 
 ```sh
-go get github.com/umatare5/logbook-api-framework-impl
+go get github.com/umatare5/logbook-api-router-impl
 ```
