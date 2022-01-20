@@ -1,4 +1,4 @@
-module github.com/umatare5/logbook-api-framework-impl
+module github.com/umatare5/logbook-api-router-impl
 
 go 1.16
 
